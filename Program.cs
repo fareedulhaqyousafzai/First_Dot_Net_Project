@@ -20,13 +20,17 @@ var app = builder.Build();
 
 //app.MapStaticAssets();
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}")
-//    .WithStaticAssets();
-app.Run(async (context) =>
-{
-    await context.Response.WriteAsJsonAsync("Welcome");
-}
-);
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}")
+    .WithStaticAssets();
+//app.Use(async (context,next) =>
+//{
+//    await context.Response.WriteAsync("Welcome \n");
+//    await next(context);
+//});
+//app.Run(async (context) =>
+//{
+//    await context.Response.WriteAsync("PAKISTAN");
+//});
 app.Run();
