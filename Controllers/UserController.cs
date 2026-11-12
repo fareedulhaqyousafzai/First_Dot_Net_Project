@@ -4,7 +4,7 @@ namespace First_Dot_Net_Project.Controllers
 {
     public class UserController : Controller
     {
-        [Route("")]
+    
         [Route("User/About")]
         public IActionResult About()
         {

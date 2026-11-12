@@ -4,17 +4,18 @@ using System.Diagnostics;
 
 namespace First_Dot_Net_Project.Controllers
 {
+    [Route("[controller]/[action]")]
     public class HomeController : Controller
     {
+        [Route("")]
+        [Route("~/")]
+        [Route("~/Home")]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
