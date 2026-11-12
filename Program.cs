@@ -20,10 +20,8 @@ var app = builder.Build();
 
 //app.MapStaticAssets();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+
+
 //app.Use(async (context,next) =>
 //{
 //    await context.Response.WriteAsync("Welcome \n");
@@ -33,4 +31,11 @@ app.MapControllerRoute(
 //{
 //    await context.Response.WriteAsync("PAKISTAN");
 //});
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=User}/{action=About}/{id?}");
+
+app.MapControllers();
+
 app.Run();
