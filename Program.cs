@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -37,11 +37,42 @@ var app = builder.Build();
 //    pattern: "{controller=User}/{action=About}/{id?}");
 
 //app.MapControllers();
-app.Map("/Home/Index", () => "Welcome to Home Page-Map");
-app.MapGet("/Home/Index", () => "Welcome to Home Page-Get");
-app.MapPost("/Home/Index", () => "Welcome to Home Page-Post");
-app.MapPut("/Home/Index", () => "Welcome to Home Page-Put");
-app.MapDelete("/Home/Index", () => "Welcome to Home Page-Delete");
+//app.Map("/Home/Index", () => "Welcome to Home Page-Map");
+//app.MapGet("/Home/Index", () => "Welcome to Home Page-Get");
+//app.MapPost("/Home/Index", () => "Welcome to Home Page-Post");
+//app.MapPut("/Home/Index", () => "Welcome to Home Page-Put");
+//app.MapDelete("/Home/Index", () => "Welcome to Home Page-Delete");
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.Map("/Home", async context =>
+    {
+        await context.Response.WriteAsync("Welcome to Home Page-Map");
+    });
+
+    endpoints.MapGet("/Home", async context =>
+    {
+        await context.Response.WriteAsync("Welcome to Home Page-Get");
+    });
+    endpoints.MapPost("/Home", async context =>
+    {
+        await context.Response.WriteAsync("Welcome to Home Page-Post");
+    });
+    endpoints.MapPut("/Home", async context =>
+    {
+        await context.Response.WriteAsync("Welcome to Home Page-Put");
+    });
+    endpoints.MapDelete("/Home", async context =>
+    {
+        await context.Response.WriteAsync("Welcome to Home Page-Delete");
+    });
+});
+
+app.Run(async (HttpContext context) =>
+{
+    await context.Response.WriteAsync("Page Not Found");
+});
 
 
 app.Run();
