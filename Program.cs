@@ -36,6 +36,12 @@ var app = builder.Build();
 //    name: "default",
 //    pattern: "{controller=User}/{action=About}/{id?}");
 
-app.MapControllers();
+//app.MapControllers();
+app.Map("/Home/Index", () => "Welcome to Home Page-Map");
+app.MapGet("/Home/Index", () => "Welcome to Home Page-Get");
+app.MapPost("/Home/Index", () => "Welcome to Home Page-Post");
+app.MapPut("/Home/Index", () => "Welcome to Home Page-Put");
+app.MapDelete("/Home/Index", () => "Welcome to Home Page-Delete");
+
 
 app.Run();
