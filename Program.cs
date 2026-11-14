@@ -18,7 +18,7 @@ var app = builder.Build();
 
 //app.UseAuthorization();
 
-//app.MapStaticAssets();
+app.MapStaticAssets();
 
 
 
@@ -32,9 +32,9 @@ var app = builder.Build();
 //    await context.Response.WriteAsync("PAKISTAN");
 //});
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=User}/{action=About}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 //app.MapControllers();
 //app.Map("/Home/Index", () => "Welcome to Home Page-Map");
@@ -42,37 +42,37 @@ var app = builder.Build();
 //app.MapPost("/Home/Index", () => "Welcome to Home Page-Post");
 //app.MapPut("/Home/Index", () => "Welcome to Home Page-Put");
 //app.MapDelete("/Home/Index", () => "Welcome to Home Page-Delete");
-app.UseRouting();
+//app.UseRouting();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.Map("/Home", async context =>
-    {
-        await context.Response.WriteAsync("Welcome to Home Page-Map");
-    });
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.Map("/Home", async context =>
+//    {
+//        await context.Response.WriteAsync("Welcome to Home Page-Map");
+//    });
 
-    endpoints.MapGet("/Home", async context =>
-    {
-        await context.Response.WriteAsync("Welcome to Home Page-Get");
-    });
-    endpoints.MapPost("/Home", async context =>
-    {
-        await context.Response.WriteAsync("Welcome to Home Page-Post");
-    });
-    endpoints.MapPut("/Home", async context =>
-    {
-        await context.Response.WriteAsync("Welcome to Home Page-Put");
-    });
-    endpoints.MapDelete("/Home", async context =>
-    {
-        await context.Response.WriteAsync("Welcome to Home Page-Delete");
-    });
-});
+//    endpoints.MapGet("/Home", async context =>
+//    {
+//        await context.Response.WriteAsync("Welcome to Home Page-Get");
+//    });
+//    endpoints.MapPost("/Home", async context =>
+//    {
+//        await context.Response.WriteAsync("Welcome to Home Page-Post");
+//    });
+//    endpoints.MapPut("/Home", async context =>
+//    {
+//        await context.Response.WriteAsync("Welcome to Home Page-Put");
+//    });
+//    endpoints.MapDelete("/Home", async context =>
+//    {
+//        await context.Response.WriteAsync("Welcome to Home Page-Delete");
+//    });
+//});
 
-app.Run(async (HttpContext context) =>
-{
-    await context.Response.WriteAsync("Page Not Found");
-});
+//app.Run(async (HttpContext context) =>
+//{
+//    await context.Response.WriteAsync("Page Not Found");
+//});
 
 
 app.Run();
